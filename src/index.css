@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    @apply bg-terminal-bg text-terminal-fg font-mono;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: auto;
+    background: linear-gradient(135deg, #0d0d0d 0%, #111111 100%);
+  }
+
+  /* Стилизация скроллбара */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #4a4a4a;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6a6a6a;
+  }
+}
+
+@layer components {
+  .terminal-line {
+    @apply mb-2 whitespace-pre-wrap break-words;
+  }
+  
+  .terminal-prompt {
+    @apply text-terminal-purple font-semibold;
+  }
+  
+  .terminal-command {
+    @apply text-terminal-blue;
+  }
+  
+  .terminal-output {
+    @apply text-terminal-fg;
+  }
+  
+  .terminal-link {
+    @apply text-terminal-blue hover:text-terminal-purple underline cursor-pointer transition-colors duration-200;
+  }
+  
+  .terminal-cursor {
+    @apply animate-blink inline-block;
+  }
+  
+  .glow-effect {
+    @apply animate-glow;
+  }
+  
+  .clickable-command {
+    @apply text-terminal-blue hover:text-terminal-purple cursor-pointer transition-colors duration-200 hover:glow-effect;
+  }
+}
